@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.mine.base.BaseListAdapter;
 import com.mine.base.BaseViewHolder;
-import com.mine.base.utils.UIUtils;
+import com.mine.base.utils.ViewHelper;
 import com.mine.modle.Order;
 
 import java.util.List;
@@ -37,9 +37,9 @@ public class DataAdapter extends BaseListAdapter<Order> {
             Order order = dataList.get(postion);
 
             if (order != null){
-                UIUtils.setText(((ViewHolder) holder).orderId, order.getId() + "");
-                UIUtils.setText(((ViewHolder) holder).customerId, order.getCustomerId() + "");
-                UIUtils.setText(((ViewHolder) holder).dateTime, order.getDate().toString());
+                ViewHelper.setText(((ViewHolder) holder).orderId, order.getId() + "");
+                ViewHelper.setText(((ViewHolder) holder).customerId, order.getCustomerId() + "");
+                ViewHelper.setText(((ViewHolder) holder).dateTime, order.getDate().toString());
 
             }
         }

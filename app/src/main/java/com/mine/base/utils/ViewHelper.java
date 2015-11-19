@@ -5,7 +5,7 @@ import android.widget.TextView;
 /**
  * Created by jacky on 15/10/8.
  */
-public class UIUtils {
+public class ViewHelper {
 
     public static void setText(TextView view, String str){
         if (view != null && str != null){

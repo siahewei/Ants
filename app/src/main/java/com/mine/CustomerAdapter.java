@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.mine.base.BaseListAdapter;
 import com.mine.base.BaseViewHolder;
-import com.mine.base.utils.UIUtils;
+import com.mine.base.utils.ViewHelper;
 import com.mine.modle.Customer;
 
 import java.util.List;
@@ -35,8 +35,8 @@ public class CustomerAdapter extends BaseListAdapter<Customer> {
            Customer customer = dataList.get(postion);
 
            if (customer != null){
-               UIUtils.setText(((ViewHolder) viewHolder).custmoerId, customer.getId() + "");
-               UIUtils.setText(((ViewHolder) viewHolder).custmerName, customer.getName());
+               ViewHelper.setText(((ViewHolder) viewHolder).custmoerId, customer.getId() + "");
+               ViewHelper.setText(((ViewHolder) viewHolder).custmerName, customer.getName());
            }
        }
 
