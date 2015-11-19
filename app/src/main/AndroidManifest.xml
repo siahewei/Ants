@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mine">
+    package="com.mine">
 
     <application
         android:allowBackup="true"

@@ -5,9 +5,9 @@ android {
     buildToolsVersion '22.0.1'
 
     defaultConfig {
-        applicationId "mine"
-        minSdkVersion 19
-        targetSdkVersion 21
+        applicationId "com.mine"
+        minSdkVersion 14
+        maxSdkVersion 21
         versionCode 1
         versionName "1.0"
     }

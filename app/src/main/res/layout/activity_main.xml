@@ -31,7 +31,7 @@
         android:layout_below="@+id/show_data"
         android:scrollbars="none"
         android:id="@+id/data_list_view"/-->>
-    <mine.base.cstlistview.PullListView
+    <com.mine.base.cstlistview.PullListView
         android:id="@+id/test_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
