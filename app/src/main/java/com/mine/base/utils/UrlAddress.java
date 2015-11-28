@@ -8,28 +8,27 @@ package com.mine.base.utils;
  */
 public class UrlAddress {
 
-    public enum Env{
+    public enum Env {
         TEST,           // 线上测试环境
         ONLINE,         // 线上正式环境
-        LOCAL_TEST      // 本地测试环境
+        LOCAL_TEST     // 本地测试环境
     }
 
     private static Env mEnv = Env.LOCAL_TEST;
 
-    public static void setEnv(Env env){
+    public static void setEnv(Env env) {
         mEnv = env;
     }
 
-    private static String getTestDomain(){
-        if (mEnv == Env.LOCAL_TEST){
-            return "http://192.168.1.109:8000";
-        }else {
+    private static String getTestDomain() {
+        if (mEnv == Env.LOCAL_TEST) {
+            return "http://192.168.1.104:8000";
+        } else {
             return "";
         }
     }
 
     public static String TEST_URL = getTestDomain() + "/index/";
-
 
 
 }

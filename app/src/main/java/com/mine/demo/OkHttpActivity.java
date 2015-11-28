@@ -6,10 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.mine.R;
 import com.mine.base.commom.okhttpnetwork.OkhttpHelper;
 import com.mine.base.utils.UrlAddress;
-
-import com.mine.R;
 
 /**
  * project     Afine
@@ -38,10 +37,11 @@ public class OkHttpActivity extends Activity {
         mNetRequstBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                OkhttpHelper.onGetJson(UrlAddress.TEST_URL, new OkhttpHelper.onHttpListener() {
+
+                OkhttpHelper.onGetBean(UrlAddress.TEST_URL, new OkhttpHelper.onHttpListener<String>(){
                     @Override
-                    public void onSuccess(String s) {
-                        //ViewHelper.setText(mShowArea, s);
+                    public void onSuccess(String data) {
+                        mShowArea.setText(data);
                     }
 
                     @Override
@@ -49,6 +49,7 @@ public class OkHttpActivity extends Activity {
 
                     }
                 });
+
             }
         });
 

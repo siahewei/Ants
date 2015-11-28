@@ -4,12 +4,8 @@ import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.socks.library.KLog;
-import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-
-import java.io.IOException;
 
 /**
  * project    Afine
@@ -22,34 +18,35 @@ public class OkhttpHelper {
     private static OkHttpClient mClient = new OkHttpClient();
     private static Gson gson = new Gson();
 
-    public static void onGetJson(String url, final onHttpListener l){
+    public static <T> void onGetBean(String url, final onHttpListener<T> l){
         if (!TextUtils.isEmpty(url) && l != null){
-
-            Request request = new Request.Builder()
+            new OkHttpGetRequest.Builder()
                     .url(url)
-                    .build();
-
-               mClient.newCall(request).enqueue(new Callback() {
-                    @Override
-                    public void onFailure(Request request, IOException e) {
-                        l.onFailed(e);
-                        KLog.d("e:" + e);
-                    }
-
-                    @Override
-                    public void onResponse(Response response) throws IOException {
-                        if (response.isSuccessful() && response.body() != null){
-                            l.onSuccess(response.body().toString());
-                            KLog.json(response.body().string());
+                    .get(new ResultCallback() {
+                        @Override
+                        protected void onFailure(Request request, Exception e, int httpErr) {
+                            KLog.e(e + "");
+                            l.onFailed(e);
                         }
-                    }
-                });
+
+                        @Override
+                        protected void onSuccess(Object o) {
+
+                            KLog.d("object", o.toString());
+                            l.onSuccess((T)o);
+                        }
+
+                        @Override
+                        protected void onSuccess(String data) {
+                            KLog.d("String" ,data);
+                        }
+                    });
         }
     }
 
-    public interface onHttpListener{
-        public void onSuccess(String s);
-        public void onFailed(Exception e);
+    public static abstract class onHttpListener<T>{
+        public abstract void onSuccess(T data);
+        public abstract void onFailed(Exception e);
     }
 
 }

@@ -53,8 +53,6 @@ public class SecondActivity extends Activity {
         if (customerAdapter != null){
             customerAdapter.notifyDataSetChanged();
         }
-
-
     }
 
 
