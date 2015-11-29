@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mine.R;
 import com.mine.base.commom.imageloader.ImageUtils;
+import com.mine.base.commom.okhttpnetwork.OkhttpHelper;
 
 /**
  * project     Ants
@@ -42,6 +43,16 @@ public class FresoDemoActivity extends Activity{
         ImageUtils.displayImg(imgTest5, "http://pic.meizitu.com/wp-content/uploads/2015a/11/09/05.jpg");
         ImageUtils.displayImg(imgTest6, "http://pic.meizitu.com/wp-content/uploads/2015a/11/09/04.jpg");
 
+        OkhttpHelper.onDownload("http://pic.meizitu.com/wp-content/uploads/2015a/11/16/05.jpg", "test.jpg", new OkhttpHelper.onHttpListener() {
+            @Override
+            public void onSuccess(Object data) {
 
+            }
+
+            @Override
+            public void onFailed(Exception e) {
+
+            }
+        });
     }
 }

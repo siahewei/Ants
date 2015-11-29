@@ -48,6 +48,11 @@ public class OkHttpClientManager {
         }
     }
 
+
+    public Handler getmHandler() {
+        return mHandler;
+    }
+
     public OkHttpClient getOkHttpClient() {
         return mOkHttpClient;
     }
@@ -74,7 +79,7 @@ public class OkHttpClientManager {
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
-                sendFailure(request, e, -1, callback);
+                sendFailure(request, e, ResultCallback.OK_HTTP_ERRO_IO, callback);
             }
 
             @Override
@@ -109,7 +114,7 @@ public class OkHttpClientManager {
 
     }
 
-    private void sendSuccess(final Object response, final ResultCallback callback) {
+    public void sendSuccess(final Object response, final ResultCallback callback) {
         if (callback == null) {
             throw new RuntimeException("callback is null");
         }
@@ -122,7 +127,7 @@ public class OkHttpClientManager {
         });
     }
 
-    private void sendFailure(final Request request, final Exception e, final int httpErrorCode, final ResultCallback callback) {
+    public void sendFailure(final Request request, final Exception e, final int httpErrorCode, final ResultCallback callback) {
 
         if (callback == null) {
             throw new RuntimeException("callback is null");

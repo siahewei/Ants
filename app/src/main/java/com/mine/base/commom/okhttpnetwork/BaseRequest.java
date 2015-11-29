@@ -5,6 +5,7 @@ import android.widget.ImageView;
 
 import com.squareup.okhttp.Headers;
 import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 
@@ -19,7 +20,8 @@ import java.util.Map;
  * @verstion 15/11/20
  */
 public abstract class BaseRequest {
-    protected  OkHttpClientManager mManager = OkHttpClientManager.getInstance();
+    protected OkHttpClientManager mManager = OkHttpClientManager.getInstance();
+    protected OkHttpClient mOkHttpClient;
 
     protected RequestBody mRequestBody;
     protected Request mRequest;
@@ -32,6 +34,7 @@ public abstract class BaseRequest {
 
 
     public BaseRequest(String url,String tag, Map<String, String> params, Map<String,String> header){
+        this.mOkHttpClient = mManager.getOkHttpClient();
         this.url = url;
         this.params = params;
         this.headers = header;
@@ -185,6 +188,14 @@ public abstract class BaseRequest {
             request.invokeAsyn(callback);
             return request;
         }
+
+        public BaseRequest download(ResultCallback callback)
+        {
+            BaseRequest request = new OkHttpDownloadRequest(url, tag, params, headers, destFileDir, destFileName);
+            request.invokeAsyn(callback);
+            return request;
+        }
+
 
 
 
