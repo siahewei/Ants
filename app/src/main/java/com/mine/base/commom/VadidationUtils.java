@@ -83,7 +83,7 @@ public class VadidationUtils {
         while (entries.hasNext()) {
 
             Map.Entry<String, String> entry = entries.next();
-            String[] splitRules = {entry.getValue()};
+            String[] splitRules = entry.getValue().split("\\|");
             String keyAttri = entry.getKey();
 
             String value = getAttriValue(o, keyAttri);
@@ -104,7 +104,7 @@ public class VadidationUtils {
 
                     if (val != ERR_NO){
                         failuers.add(val);
-                        errMsg += msg;
+                        errMsg += msg + ",";
                     }
 
                 } catch (Exception e) {
