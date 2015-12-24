@@ -22,13 +22,13 @@ public class UrlAddress {
 
     private static String getTestDomain() {
         if (mEnv == Env.LOCAL_TEST) {
-            return "http://192.168.1.104:8000";
+            return "http://192.168.1.140:8000";
         } else {
             return "";
         }
     }
 
-    public static String TEST_URL = getTestDomain() + "/index/";
+    public static String TEST_URL = getTestDomain() + "/find/";
 
 
 }

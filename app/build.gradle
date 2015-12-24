@@ -33,5 +33,6 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'com.facebook.fresco:fresco:0.8.1'
     compile files('libs/freemarker-2.3.23.jar')
+    compile 'com.android.support:design:22.2.0'
     compile files('libs/greendao-generator-2.0.0.jar')
 }

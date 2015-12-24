@@ -13,7 +13,6 @@ import java.util.List;
 public abstract class BaseListAdapter<K> extends BaseAdapter {
     protected List<K> dataList;
     protected Context context;
-
     public BaseListAdapter(List<K> dataList, Context context) {
         this.dataList = dataList;
         this.context = context;

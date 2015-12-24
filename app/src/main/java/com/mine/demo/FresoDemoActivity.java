@@ -27,7 +27,7 @@ public class FresoDemoActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.fresco_demo_activity);
+        setContentView(R.layout.demo_fresco_activity);
         imgTest1 = (SimpleDraweeView) findViewById(R.id.img_test1);
         imgTest2 = (SimpleDraweeView) findViewById(R.id.img_test2);
         imgTest3 = (SimpleDraweeView) findViewById(R.id.img_test3);
